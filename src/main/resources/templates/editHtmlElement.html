@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/head :: head_fragment(title = 'ユーザー情報', scripts = ~{::script}, links = ~{::link})"></head>
+<body>
+
+	<div class="container">
+    	<h1>HTML要素を持っていくテスト</h1>
+    	<div class="float-end">
+    	<a th:href="@{/demo/viewHtmlElementList}" class="btn btn-primary">一覧に戻る</a>
+		</div>
+
+		<div>
+
+			<form th:object="${htmlElement}" th:action="@{/demo/updateHtmlElementListResult}" method="post">
+				<div>
+					<label>
+						ＩＤ : 
+			   			<input id="id" type="text" name="id" th:value="*{id}"/> 
+					</label>
+				</div>
+				<div>
+					<label> 
+						タグ名: 
+				   		<input id="tagName" type="text" name="tagName" th:value="*{tagName}"/> 
+					</label> 
+			   	</div>
+				<div>
+					<label> 
+						テキスト: 
+					    <textarea  id="text" name="text" th:text="*{text}" style="width:100%; height:300px"></textarea>
+		 			</label>
+				</div>
+				<div>
+					<label> 
+						色: 
+				   		<input id="color" type="text" name="color" th:value="*{color}"/>
+		 			</label>
+				</div>
+				<div>
+					<input type="submit" value="更新" class="btn btn-primary"/>
+			   	</div>
+			   	
+			</form>
+
+		</div>
+
+        <div class="col-md-9"> 
+			  <textarea  style="width:100%; height:300px" value="あああ">文章</textarea>
+        </div>	
+           
+	</div>
+
+</body>
+</html>

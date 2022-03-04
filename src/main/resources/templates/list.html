@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/head :: head_fragment(title = 'ユーザー情報一覧', scripts = ~{::script}, links = ~{::link})">
+</head>
+<body>
+  <div class="container">
+    <h1>ユーザー情報一覧</h1>
+    <div class="float-end">
+      <a th:href="@{/demo/edit}" class="btn btn-primary">新規登録はこちら</a>
+      <a th:href="@{/demo/htmlEdit}" class="btn btn-secondary">タグ格納テストはこちら</a>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Ｅメールアドレス</th>
+          <th>名前</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="user : ${attUserlist}" th:object="${user}" class="align-middle">
+          <td th:text="*{id}"></td>
+          <td th:text="*{email}"></td>
+          <td th:text="*{name}"></td>
+          <td><a th:href="@{/demo/one/{id}(id=*{id})}" class="btn btn-secondary">詳細</a></td>
+        </tr>
+      </tbody>
+    </table>
+	<input id="target" type="text" value="jQuery"/>
+	<button>取得</button>
+	<ul></ul>
+  </div>
+  <script type="text/javascript" th:src="@{/js/jquery-3.6.0.min.js}"></script>
+  <script type="text/javascript" th:src="@{/js/javascript.js}"></script>
+</body>
+</html>

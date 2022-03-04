@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/head :: head_fragment(title = 'ユーザー情報', scripts = ~{::script}, links = ~{::link})"></head>
+<body>
+  <div class="container">
+    <h1>ユーザー情報</h1>
+    <div class="float-end">
+      <a th:href="@{/demo/list}" class="btn btn-primary">一覧に戻る</a>
+    </div>
+	<!-- グリッド表示 -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>項目名</th>
+          <th>内容</th>
+        </tr>
+      </thead>
+      <tbody th:object="${attUserOne}" class="align-middle">
+        <tr>
+          <td>id</td><td th:text="*{id}"></td>
+        </tr>
+        <tr>
+          <td>email</td><td th:text="*{email}"></td>
+        </tr>
+        <tr>
+          <td>name</td><td th:text="*{name}"></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <a th:href="@{/demo/edit/{id}(id=*{id})}" class="btn btn-secondary">編集</a>
+  <form th:object="${attUserOne}" th:action="@{/demo/deleteResult/{id}(id=*{id})}" method="post">
+	<div>
+		<input type="submit" value="削除" class="btn btn-danger"/>
+   	</div>
+  </form>
+  </div>
+</body>
+</html>

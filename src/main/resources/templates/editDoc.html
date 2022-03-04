@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/head :: head_fragment(title = 'ユーザー情報', scripts = ~{::script}, links = ~{::link})"></head>
+<body>
+
+	<div class="container">
+    	<h1>業務マニュアル名作成・編集</h1>
+    	<div class="float-end">
+    	<a th:href="@{/demo/viewDocList}" class="btn btn-primary">一覧に戻る</a>
+		</div>
+
+		<div>
+
+			<form th:object="${doc}" th:action="@{/demo/updateDocResult}" method="post">
+				<div>
+					<label>
+						ＩＤ : 
+			   			<input id="id" type="text" name="id" th:value="*{id}"/> 
+					</label>
+				</div>
+				<div>
+					<label> 
+						マニュアル名: 
+				   		<input id="docName" type="text" name="docName" th:value="*{docName}"/> 
+					</label> 
+			   	</div>
+				<div>
+					<label> 
+						備考: 
+					    <input id="note" type="text" name="note" th:value="*{note}" />
+		 			</label>
+				</div>
+				<div>
+					<input type="submit" value="更新" class="btn btn-primary"/>
+			   	</div>
+			   	
+			</form>
+
+		</div>
+           
+	</div>
+
+</body>
+</html>

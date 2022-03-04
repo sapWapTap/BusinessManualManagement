@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/head :: head_fragment(title = 'ユーザー情報一覧', scripts = ~{::script}, links = ~{::link})">
+</head>
+<body>
+  <div class="container">
+    <h1>HTML要素一覧</h1>
+    <div class="float-end">
+      <a th:href="@{/demo/editHtmlElement}" class="btn btn-primary">新規登録はこちら</a>
+      <a th:href="@{/demo/viewHtmlElementList}" class="btn btn-primary">一覧表示はこちら</a>
+    </div>
+	<form th:object="${htmlElementListDto}" th:action="@{/demo/updateHtmlElementListResult}" method="post">
+	    <table class="table table-striped">
+	      <thead>
+	        <tr>
+	          <th>ID</th>
+	          <th>タグ名</th>
+	          <th>テキスト</th>
+	          <th>色</th>
+	        </tr>
+	      </thead>
+	      <tbody id="htmlElementTable">
+	        <tr th:each="htmlElement, stat : *{htmlElementList}" class="align-middle">
+	          <td><input type="text" th:name="${stat.count}" th:field="*{htmlElementList[__${stat.index}__].id}"/></td>
+	          <td><input type="text" th:name="${stat.count}" th:field="*{htmlElementList[__${stat.index}__].tagName}"/></td>
+	          <td><textarea type="text" th:name="${stat.count}" th:field="*{htmlElementList[__${stat.index}__].text}"/></td>
+	          <td><input type="text" th:name="${stat.count}" th:field="*{htmlElementList[__${stat.index}__].color}"/></td>
+ 	        </tr>
+			<tr>
+				<input type="submit" value="更新" class="btn btn-primary"/>
+		   	</tr>
+	      </tbody>
+	    </table>
+	   	<label> 要素数： </label><label id="elementCount" th:text="*{htmlElementList.size()}"></label>
+	</form>
+	<div id="addArea">
+   		<button id="addHtmlElementBtn">追加</button>
+   	</div>
+
+	<div class="drag-and-drop" id="red-box">test1<input/></div>
+	<div class="drag-and-drop" id="blue-box">test2</div>
+	<div class="drag-and-drop" id="yellow-box"><img src="/img/sample.jpg"></div>
+	
+    <br>
+    
+
+	<input id="target" type="text" value="jQuery"/>
+	<button id="getGitHubApiBtn">GitHub取得</button>
+	<ul id="githubQueryAddArea"></ul>
+  </div>
+  <script type="text/javascript" th:src="@{/js/jquery-3.6.0.min.js}"></script>
+  <script type="text/javascript" th:src="@{/js/addHtmlElement.js}"></script>
+  <script type="text/javascript" th:src="@{/js/dragDrop.js}"></script>
+
+  <script type="text/javascript" th:src="@{/js/javascript.js}"></script>
+  
+</body>
+</html>

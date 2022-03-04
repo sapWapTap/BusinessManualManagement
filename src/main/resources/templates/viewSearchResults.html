@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- ben/benspassword -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/head :: head_fragment(title = '検索結果', scripts = ~{::script}, links = ~{::link})">
+</head>
+<body>
+  <div class="container">
+    <label style="font-size:40pt">検索結果</label>
+    <!-- 
+    <h1>業務マニュアル一覧</h1>
+     -->
+    <div class="float-end">
+      <a th:href="@{/demo/editDoc}" class="btn btn-primary">業務マニュアル一覧はこちら</a>
+      <!-- 
+      <a th:href="@{/demo/editDocList}" class="btn btn-primary">一括編集はこちら</a>
+       -->
+      <a th:href="@{/logout}" class="btn btn-primary">ログアウト</a>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>テキスト</th>
+          <th>ドキュメント名</th>
+          <th>備考</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="htmlElement:${htmlElementList}" th:object="${htmlElement}" class="align-middle">
+          <td th:text="*{id}"></td>
+          <td th:text="*{text}"></td>
+          <td th:text="*{doc.docName}"></td>
+          <td th:text="*{doc.note}"></td>
+          <!-- 
+          <td><a th:href="@{/demo/editDoc/{id}(id=*{id})}" class="btn btn-secondary">マニュアル名修正</a></td>
+          <td><a th:href="@{/demo/editHtmlElementList/{id}(id=*{id})}" class="btn btn-secondary">マニュアル確認・修正</a></td>
+           -->
+        </tr>
+      </tbody>
+    </table>
+    <!-- ajaxテスト用
+     -->
+	<input id="searchWord" type="text" value="CSS"/>
+	<button id="searchBtn">検索</button>
+	<ul id="searchResultArea">
+	</ul>
+  </div>
+  <script type="text/javascript" th:src="@{/js/jquery-3.6.0.min.js}"></script>
+  <script type="text/javascript" th:src="@{/js/escapeHtml.js}"></script>
+  <script type="text/javascript" th:src="@{/js/searchAndResult.js}"></script>
+</body>
+</html>

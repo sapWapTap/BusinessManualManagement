@@ -1,0 +1,147 @@
+/*
+div {
+	border: 2px solid #000000;
+	margin-left: 100px;
+}
+*/
+/*
+input[type="text"] { width: 90%; }
+*/
+p {
+	width: 98%; 
+}
+input {
+	width: 98%; 
+}
+textarea {
+	width: 98%; 
+	line-height: 20px;
+}
+.H1 {
+	margin-left: 2%;
+}
+.H2 {
+	margin-left: 4%;
+}
+.H3 {
+	margin-left: 6%;
+}
+.H4 {
+	margin-left: 8%;
+}
+.H5 {
+	margin-left: 10%;
+}
+.H6 {
+	margin-left: 12%;
+}
+.H7 {
+	margin-left: 14%;
+}
+.editSwitch {
+	width: 65px; 
+	height : 23px;
+	/* text-align : center; */
+	/* align-items : center; */
+	font-size: 3px;
+	margin-left : 5px;
+}
+.moveForDrag {
+	cursor: move;
+}
+.drag-and-drop {
+	/* cursor: move; */
+	/* position: absolute; */
+	position: static;
+	z-index: 1000;
+}
+.drag {
+	z-index: 1001;
+}
+.isParts{
+}
+.original{
+}
+.clone{
+}
+h1 {
+    counter-reset: chapterNumH2;
+}
+h2 {
+    counter-reset: chapterNumH3;
+	}
+h3 {
+}
+h4 {
+}
+h1:before {
+    content: counter(chapterNumH1) "章. ";
+    counter-increment: chapterNumH1
+}
+h2:before {
+    content: " " counter(chapterNumH1) "-" counter(chapterNumH2) " ";
+    counter-increment: chapterNumH2;
+}
+h3:before {
+    content: " " counter(chapterNumH1) "-" counter(chapterNumH2) "-" counter(chapterNumH3) " ";
+    counter-increment: chapterNumH3;
+}
+/*
+.box_srcollbar {
+    overflow:auto; 下の行とどっちかで 
+	overflow:hidden;	
+	overflow-y:scroll;
+    width:80%;
+    height:500px;
+    padding:5px;
+    border:1px solid #000;
+    background-color:#F9F9F9;
+    color:#000;
+}
+*/
+.displayNone {
+	display : none;
+}
+.border {
+    border:1px solid #000;
+}
+/* 
+.editArea {
+	float : left;
+	width : 80%;
+	counter-reset: chapterNumH1;
+}
+.partsArea {
+	float : right;
+	width : 20%;
+}
+*/
+.editArea{
+	counter-reset: chapterNumH1;
+	float:left;
+	position: fixed;
+	height: 100%;
+}
+.width80 {
+	width : 80%;
+}
+.width100 {
+	width : 100%;
+}
+.editArea_s {
+	height:100%;
+	overflow-y:scroll;
+	}
+
+.partsArea{
+	float : right;
+	width : 20%;
+	position: static;
+	/* position: fixed; */
+	height: 100%;
+	/* margin-left:80%; */
+}
+.partsArea_s {
+	height:100%;
+	overflow-y:scroll;
+	}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- ben/benspassword -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/head :: head_fragment(title = 'ユーザー情報一覧', scripts = ~{::script}, links = ~{::link})">
+</head>
+<body>
+  <div class="container">
+    <h1>HTML要素一覧</h1>
+    <div class="float-end">
+      <a th:href="@{/demo/editHtmlElement}" class="btn btn-primary">新規登録はこちら</a>
+      <a th:href="@{/demo/editHtmlElementList}" class="btn btn-primary">一括編集はこちら</a>
+      <a th:href="@{/logout}" class="btn btn-primary">ログアウト</a>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>タグ名</th>
+          <th>テキスト</th>
+          <th>色</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="htmlElement : ${htmlElementList}" th:object="${htmlElement}" class="align-middle">
+          <td th:text="*{id}"></td>
+          <td th:text="*{tagName}"></td>
+          <td th:utext="*{text}"></td>
+          <td th:text="*{color}"></td>
+          <td><a th:href="@{/demo/viewHtmlElement/{id}(id=*{id})}" class="btn btn-secondary">詳細</a></td>
+        </tr>
+      </tbody>
+    </table>
+	<input id="target" type="text" value="jQuery"/>
+	<button>取得</button>
+	<ul></ul>
+  </div>
+  <script type="text/javascript" th:src="@{/js/jquery-3.6.0.min.js}"></script>
+  <script type="text/javascript" th:src="@{/js/javascript.js}"></script>
+</body>
+</html>

@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <!-- ben/benspassword -->
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!-- Herokuだと動かない（replace="/head"がダメ）
 <head th:replace="/head :: head_fragment(title = '業務マニュアル一覧', scripts = ~{::script}, links = ~{::link})">
+ -->
+<head th:replace="head :: head_fragment(title = '業務マニュアル一覧', scripts = ~{::script}, links = ~{::link})">
 </head>
 <body>
   <div class="container">

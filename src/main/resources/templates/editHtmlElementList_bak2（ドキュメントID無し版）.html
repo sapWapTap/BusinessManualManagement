@@ -7,13 +7,13 @@
 	  <div class="editArea editArea_s">
 	    <h1>文書作成エリア</h1>
 	    <div class="float-end" id="divBtn">
-	      <a th:href="@{/demo/viewDocList}" class="btn btn-primary">マニュアル一覧はこちら</a>
-	      <a th:href="@{/demo/editHtmlElement}" class="btn btn-primary">要素の新規登録はこちら</a>
-	      <a th:href="@{/demo/viewHtmlElementList}" class="btn btn-primary">一覧表示はこちら</a>
+	      <a th:href="@{/viewDocList}" class="btn btn-primary">マニュアル一覧はこちら</a>
+	      <a th:href="@{/editHtmlElement}" class="btn btn-primary">要素の新規登録はこちら</a>
+	      <a th:href="@{/viewHtmlElementList}" class="btn btn-primary">一覧表示はこちら</a>
 	    </div>
 	    <div id="divTable">
 			<button id="hiddenSwitchBtn" class="btn btn-primary">elementListTableの表示切替</button>
-			<form th:object="${htmlElementListDto}" th:action="@{/demo/updateHtmlElementListResult}" method="post">
+			<form th:object="${htmlElementListDto}" th:action="@{/updateHtmlElementListResult}" method="post">
 			    <table class="table table-striped displayNone" id="elementListTable">
 			      <thead>
 			        <tr>
@@ -40,10 +40,10 @@
 			          <td><textarea rows="1" th:name="${stat.count}" th:field="*{htmlElementList[__${stat.index}__].clientRectTop}"></textarea></td>
 			          <td><textarea rows="1" th:name="${stat.count}" th:field="*{htmlElementList[__${stat.index}__].chapterLevel}"></textarea></td>
 			          <td><textarea rows="1" th:name="${stat.count}" th:field="*{htmlElementList[__${stat.index}__].color}"></textarea></td>
-			          <td><a th:href="@{/demo/viewHtmlElement/{id}(id=${htmlElement.id})}" class="btn btn-secondary">詳細</a></td>
+			          <td><a th:href="@{/viewHtmlElement/{id}(id=${htmlElement.id})}" class="btn btn-secondary">詳細</a></td>
           			  <!-- 
 			          <td>
-			          	<form th:object="${htmlElement}" th:action="@{/demo/deleteHtmlElementResult/{id}(id=${htmlElement.id})}" method="post">
+			          	<form th:object="${htmlElement}" th:action="@{/deleteHtmlElementResult/{id}(id=${htmlElement.id})}" method="post">
 							<input type="submit" value="削除" class="btn btn-danger"/>
 					  	</form>
           			   -->

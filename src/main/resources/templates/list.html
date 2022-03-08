@@ -6,8 +6,8 @@
   <div class="container">
     <h1>ユーザー情報一覧</h1>
     <div class="float-end">
-      <a th:href="@{/demo/edit}" class="btn btn-primary">新規登録はこちら</a>
-      <a th:href="@{/demo/htmlEdit}" class="btn btn-secondary">タグ格納テストはこちら</a>
+      <a th:href="@{/edit}" class="btn btn-primary">新規登録はこちら</a>
+      <a th:href="@{/htmlEdit}" class="btn btn-secondary">タグ格納テストはこちら</a>
     </div>
     <table class="table table-striped">
       <thead>
@@ -23,7 +23,7 @@
           <td th:text="*{id}"></td>
           <td th:text="*{email}"></td>
           <td th:text="*{name}"></td>
-          <td><a th:href="@{/demo/one/{id}(id=*{id})}" class="btn btn-secondary">詳細</a></td>
+          <td><a th:href="@{/one/{id}(id=*{id})}" class="btn btn-secondary">詳細</a></td>
         </tr>
       </tbody>
     </table>

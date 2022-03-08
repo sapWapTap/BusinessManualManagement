@@ -5,7 +5,7 @@
   <div class="container">
     <h1>ユーザー情報</h1>
     <div class="float-end">
-      <a th:href="@{/demo/list}" class="btn btn-primary">一覧に戻る</a>
+      <a th:href="@{/list}" class="btn btn-primary">一覧に戻る</a>
     </div>
 	<!-- グリッド表示 -->
     <table class="table table-striped">
@@ -31,8 +31,8 @@
         </tr>
       </tbody>
     </table>
-    <a th:href="@{/demo/edit/{id}(id=*{id})}" class="btn btn-secondary">編集</a>
-  <form th:object="${attUserOne}" th:action="@{/demo/deleteResult/{id}(id=*{id})}" method="post">
+    <a th:href="@{/edit/{id}(id=*{id})}" class="btn btn-secondary">編集</a>
+  <form th:object="${attUserOne}" th:action="@{/deleteResult/{id}(id=*{id})}" method="post">
 	<div>
 		<input type="submit" value="削除" class="btn btn-danger"/>
    	</div>

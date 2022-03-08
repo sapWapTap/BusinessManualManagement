@@ -13,9 +13,9 @@
     <h1>業務マニュアル一覧</h1>
      -->
     <div class="float-end">
-      <a th:href="@{/demo/editDoc}" class="btn btn-primary">新規登録はこちら</a>
+      <a th:href="@{/editDoc}" class="btn btn-primary">新規登録はこちら</a>
       <!-- 
-      <a th:href="@{/demo/editDocList}" class="btn btn-primary">一括編集はこちら</a>
+      <a th:href="@{/editDocList}" class="btn btn-primary">一括編集はこちら</a>
        -->
       <a th:href="@{/logout}" class="btn btn-primary">ログアウト</a>
     </div>
@@ -34,13 +34,13 @@
           <td th:text="*{id}"></td>
           <td th:text="*{docName}"></td>
           <td th:text="*{note}"></td>
-          <td><a th:href="@{/demo/editDoc/{id}(id=*{id})}" class="btn btn-secondary">マニュアル名修正</a></td>
-          <td><a th:href="@{/demo/editHtmlElementList/{id}(id=*{id})}" class="btn btn-secondary">マニュアル確認・修正</a></td>
+          <td><a th:href="@{/editDoc/{id}(id=*{id})}" class="btn btn-secondary">マニュアル名修正</a></td>
+          <td><a th:href="@{/editHtmlElementList/{id}(id=*{id})}" class="btn btn-secondary">マニュアル確認・修正</a></td>
         </tr>
       </tbody>
     </table>
     <!-- tymeleaf用
-	<form th:action="@{/demo/viewSearchResults}" method="post">
+	<form th:action="@{/viewSearchResults}" method="post">
 	  <input name="searchWord" type="text" value="CSS"/>
 	  <input type="submit" value="検索" style="width:10%;" class="btn btn-primary"/>
 	</form>

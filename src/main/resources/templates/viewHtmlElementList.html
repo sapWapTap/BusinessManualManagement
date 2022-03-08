@@ -7,8 +7,8 @@
   <div class="container">
     <h1>HTML要素一覧</h1>
     <div class="float-end">
-      <a th:href="@{/demo/editHtmlElement}" class="btn btn-primary">新規登録はこちら</a>
-      <a th:href="@{/demo/editHtmlElementList}" class="btn btn-primary">一括編集はこちら</a>
+      <a th:href="@{/editHtmlElement}" class="btn btn-primary">新規登録はこちら</a>
+      <a th:href="@{/editHtmlElementList}" class="btn btn-primary">一括編集はこちら</a>
       <a th:href="@{/logout}" class="btn btn-primary">ログアウト</a>
     </div>
     <table class="table table-striped">
@@ -27,7 +27,7 @@
           <td th:text="*{tagName}"></td>
           <td th:utext="*{text}"></td>
           <td th:text="*{color}"></td>
-          <td><a th:href="@{/demo/viewHtmlElement/{id}(id=*{id})}" class="btn btn-secondary">詳細</a></td>
+          <td><a th:href="@{/viewHtmlElement/{id}(id=*{id})}" class="btn btn-secondary">詳細</a></td>
         </tr>
       </tbody>
     </table>

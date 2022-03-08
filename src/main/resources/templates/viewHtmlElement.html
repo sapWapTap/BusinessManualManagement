@@ -5,7 +5,7 @@
   <div class="container">
     <h1>HTML要素情報</h1>
     <div class="float-end">
-      <a th:href="@{/demo/viewHtmlElementList}" class="btn btn-primary">一覧に戻る</a>
+      <a th:href="@{/viewHtmlElementList}" class="btn btn-primary">一覧に戻る</a>
     </div>
 	<!-- グリッド表示 -->
     <table class="table table-striped">
@@ -34,8 +34,8 @@
         </tr>
       </tbody>
     </table>
-    <a th:href="@{/demo/editHtmlElement/{id}(id=*{id})}" class="btn btn-secondary">編集</a>
-	<form th:object="${htmlElement}" th:action="@{/demo/deleteHtmlElementResult/{id}(id=*{id})}" method="post">
+    <a th:href="@{/editHtmlElement/{id}(id=*{id})}" class="btn btn-secondary">編集</a>
+	<form th:object="${htmlElement}" th:action="@{/deleteHtmlElementResult/{id}(id=*{id})}" method="post">
 	<div>
 		<input type="submit" value="削除" class="btn btn-danger"/>
    	</div>

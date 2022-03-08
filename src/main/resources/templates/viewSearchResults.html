@@ -10,9 +10,9 @@
     <h1>業務マニュアル一覧</h1>
      -->
     <div class="float-end">
-      <a th:href="@{/demo/editDoc}" class="btn btn-primary">業務マニュアル一覧はこちら</a>
+      <a th:href="@{/editDoc}" class="btn btn-primary">業務マニュアル一覧はこちら</a>
       <!-- 
-      <a th:href="@{/demo/editDocList}" class="btn btn-primary">一括編集はこちら</a>
+      <a th:href="@{/editDocList}" class="btn btn-primary">一括編集はこちら</a>
        -->
       <a th:href="@{/logout}" class="btn btn-primary">ログアウト</a>
     </div>
@@ -32,8 +32,8 @@
           <td th:text="*{doc.docName}"></td>
           <td th:text="*{doc.note}"></td>
           <!-- 
-          <td><a th:href="@{/demo/editDoc/{id}(id=*{id})}" class="btn btn-secondary">マニュアル名修正</a></td>
-          <td><a th:href="@{/demo/editHtmlElementList/{id}(id=*{id})}" class="btn btn-secondary">マニュアル確認・修正</a></td>
+          <td><a th:href="@{/editDoc/{id}(id=*{id})}" class="btn btn-secondary">マニュアル名修正</a></td>
+          <td><a th:href="@{/editHtmlElementList/{id}(id=*{id})}" class="btn btn-secondary">マニュアル確認・修正</a></td>
            -->
         </tr>
       </tbody>

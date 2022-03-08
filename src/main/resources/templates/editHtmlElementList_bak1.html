@@ -6,10 +6,10 @@
   <div class="container">
     <h1>HTML要素一覧</h1>
     <div class="float-end">
-      <a th:href="@{/demo/editHtmlElement}" class="btn btn-primary">新規登録はこちら</a>
-      <a th:href="@{/demo/viewHtmlElementList}" class="btn btn-primary">一覧表示はこちら</a>
+      <a th:href="@{/editHtmlElement}" class="btn btn-primary">新規登録はこちら</a>
+      <a th:href="@{/viewHtmlElementList}" class="btn btn-primary">一覧表示はこちら</a>
     </div>
-	<form th:object="${htmlElementListDto}" th:action="@{/demo/updateHtmlElementListResult}" method="post">
+	<form th:object="${htmlElementListDto}" th:action="@{/updateHtmlElementListResult}" method="post">
 	    <table class="table table-striped">
 	      <thead>
 	        <tr>

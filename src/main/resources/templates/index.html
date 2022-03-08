@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="head :: head_fragment(title = 'index', scripts = ~{::script}, links = ~{::link})"></head>
+<body>
+  <div class="container">
+    <h1>index page</h1>
+    <div class="float-end">
+      <a th:href="@{/list}" class="btn btn-primary">一覧に戻る</a>
+    </div>
+  </div>
+</body>
+</html>

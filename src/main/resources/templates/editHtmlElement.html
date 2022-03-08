@@ -6,12 +6,12 @@
 	<div class="container">
     	<h1>HTML要素を持っていくテスト</h1>
     	<div class="float-end">
-    	<a th:href="@{/demo/viewHtmlElementList}" class="btn btn-primary">一覧に戻る</a>
+    	<a th:href="@{/viewHtmlElementList}" class="btn btn-primary">一覧に戻る</a>
 		</div>
 
 		<div>
 
-			<form th:object="${htmlElement}" th:action="@{/demo/updateHtmlElementListResult}" method="post">
+			<form th:object="${htmlElement}" th:action="@{/updateHtmlElementListResult}" method="post">
 				<div>
 					<label>
 						ＩＤ : 

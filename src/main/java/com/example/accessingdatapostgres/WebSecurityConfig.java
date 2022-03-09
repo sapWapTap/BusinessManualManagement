@@ -14,12 +14,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     http
       .authorizeRequests()
       // css, js, imagesは匿名アクセスOK
-      //.antMatchers("/css/**", "/js/**", "/images/**", "/demo/greeting/**").permitAll()
+      //.antMatchers("/css/**", "/js/**", "/images/**", "/greeting/**").permitAll()
       .anyRequest().fullyAuthenticated()
         .and()
       .formLogin();
     //http.logout().logoutSuccessUrl("/login").permitAll();
-    http.logout().logoutSuccessUrl("/demo/viewDocList");
+    http.logout().logoutSuccessUrl("/viewDocList");
   }
 
   @Override

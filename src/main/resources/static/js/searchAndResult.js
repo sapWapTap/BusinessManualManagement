@@ -1,6 +1,6 @@
-const htmlElementViewUrl = 'http://localhost:8080/demo/editHtmlElementList';
-const htmlElementSerarchUrl = 'http://localhost:8080/demo/searchHtmlElement?searchWord='; //続けてキーワードを指定する
-const docSearchUrl = 'http://localhost:8080/demo/searchDoc?docId='; //続けてDocIdを指定する
+const htmlElementViewUrl = 'http://localhost:8080/editHtmlElementList';
+const htmlElementSerarchUrl = 'http://localhost:8080/searchHtmlElement?searchWord='; //続けてキーワードを指定する
+const docSearchUrl = 'http://localhost:8080/searchDoc?docId='; //続けてDocIdを指定する
 
 $('#searchBtn').on('click', () => {
 	

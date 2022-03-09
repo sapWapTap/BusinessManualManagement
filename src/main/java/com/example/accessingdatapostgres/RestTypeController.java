@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping(path="/demo") // This means URL's start with /demo (after Application path)
+@RequestMapping(path="/") // This means URL's start with / (after Application path)
 public class RestTypeController {
 
 	@Autowired // This means to get the bean called userRepository

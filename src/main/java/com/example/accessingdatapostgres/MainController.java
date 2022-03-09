@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(path="/") // This means URL's start with /demo (after Application path)
+@RequestMapping(path="/") // This means URL's start with / (after Application path)
 public class MainController {
 
 	
@@ -21,8 +21,6 @@ public class MainController {
 	public String indexPage() {
 		return "index";
 	}
-
-	
 	
 	//Users関係（現在使用無し）---------------------------------------------------------------------------------------
 	

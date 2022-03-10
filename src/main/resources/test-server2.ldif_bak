@@ -52,7 +52,7 @@ objectclass: inetOrgPerson
 cn: Bob Hamilton
 sn: Hamilton
 uid: bob
-userPassword: $2a$10$.VLYRRApohnqvUCOAHID3ue34ODdJYWelM4KVaTn47h5q7WWu3fS6
+userPassword: bobspassword
 
 dn: uid=joe,ou=otherpeople,dc=springframework,dc=org
 objectclass: top
@@ -62,7 +62,7 @@ objectclass: inetOrgPerson
 cn: Joe Smeth
 sn: Smeth
 uid: joe
-userPassword: $2a$10$.VLYRRApohnqvUCOAHID3ue34ODdJYWelM4KVaTn47h5q7WWu3fS6
+userPassword: joespassword
 
 dn: cn=mouse\, jerry,ou=people,dc=springframework,dc=org
 objectclass: top
@@ -72,7 +72,7 @@ objectclass: inetOrgPerson
 cn: Mouse, Jerry
 sn: Mouse
 uid: jerry
-userPassword: $2a$10$cw6q2EROwD0BTdyxfARr9OdFm5wYLXFL92ZWNfnrksZ3b7h0v.Y1i
+userPassword: jerryspassword
 
 dn: cn=slash/guy,ou=people,dc=springframework,dc=org
 objectclass: top
@@ -82,7 +82,7 @@ objectclass: inetOrgPerson
 cn: slash/guy
 sn: Slash
 uid: slashguy
-userPassword: $2a$10$dJyX.aPWDAH2IWy5DmPXl.gyhwVSW5K6A8AeGzvi/l4TWvIVmpS8u
+userPassword: slashguyspassword
 
 dn: cn=quote\"guy,ou=\"quoted people\",dc=springframework,dc=org
 objectclass: top

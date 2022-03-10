@@ -3,6 +3,7 @@ package com.example.accessingdatapostgres;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -99,6 +100,19 @@ public class MainController {
 		//for (Doc val : DocList) {
 		//	System.out.println(val.getDocmentName());
 		//}
+		
+		//ここからBCryptPasswordEncoder()のテスト:間借り
+		var encoder = new BCryptPasswordEncoder();
+		System.out.println("bobspassword");
+		System.out.println(encoder.encode("bobspassword"));
+		System.out.println("joespassword");
+		System.out.println(encoder.encode("joespassword"));
+		System.out.println("jerryspassword");
+		System.out.println(encoder.encode("jerryspassword"));
+		System.out.println("slashguyspassword");
+		System.out.println(encoder.encode("slashguyspassword"));
+		//ここまで
+
 		model.addAttribute("docList", docList);
 		return "viewDocList";
 	}

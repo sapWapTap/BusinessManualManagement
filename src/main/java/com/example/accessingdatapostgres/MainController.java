@@ -132,7 +132,6 @@ public class MainController {
 		return "editDoc";
 	}
 	
-
 	//更新・登録実行ページへのマッピング（モデルアトリビュートでDOC要素情報を受け取って保存用メソッドを実行する）
 	@PostMapping("/updateDocResult")
 	public String updateDocResult(@ModelAttribute Doc doc,Model model) {

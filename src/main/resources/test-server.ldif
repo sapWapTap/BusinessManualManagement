@@ -52,7 +52,17 @@ objectclass: inetOrgPerson
 cn: Bob Hamilton
 sn: Hamilton
 uid: bob
-userPassword: $2a$10$.VLYRRApohnqvUCOAHID3ue34ODdJYWelM4KVaTn47h5q7WWu3fS6
+userPassword: $2a$10$oMPWCGQ1IIOkA.94IwlF5ujn91NZievHZtfiwgix6.hvCgNtBdQYG
+
+dn: uid=mosb,ou=people,dc=springframework,dc=org
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: mos berg
+sn: berg
+uid: mosb
+userPassword: $2a$10$NxhO4kDcMTPv9gqX.7nIS.z6nGI.F1uH91gbatidJ9TG3MjZZCx1i
 
 dn: uid=joe,ou=otherpeople,dc=springframework,dc=org
 objectclass: top
@@ -62,7 +72,7 @@ objectclass: inetOrgPerson
 cn: Joe Smeth
 sn: Smeth
 uid: joe
-userPassword: $2a$10$.VLYRRApohnqvUCOAHID3ue34ODdJYWelM4KVaTn47h5q7WWu3fS6
+userPassword: $2a$10$aFq81yZ3O0.Fo70ayUPjD.b7XVvvm96bJXNsvlWG0vYMfWkug63wG
 
 dn: cn=mouse\, jerry,ou=people,dc=springframework,dc=org
 objectclass: top
@@ -72,7 +82,7 @@ objectclass: inetOrgPerson
 cn: Mouse, Jerry
 sn: Mouse
 uid: jerry
-userPassword: $2a$10$cw6q2EROwD0BTdyxfARr9OdFm5wYLXFL92ZWNfnrksZ3b7h0v.Y1i
+userPassword: $2a$10$RmM6L3TxgwxnK8wUp.eZE.8GibU67B0PvvqRNRC6jCuoIfnOluECK
 
 dn: cn=slash/guy,ou=people,dc=springframework,dc=org
 objectclass: top
@@ -82,7 +92,7 @@ objectclass: inetOrgPerson
 cn: slash/guy
 sn: Slash
 uid: slashguy
-userPassword: $2a$10$dJyX.aPWDAH2IWy5DmPXl.gyhwVSW5K6A8AeGzvi/l4TWvIVmpS8u
+userPassword: $2a$10$r6dT1jzYjUYmxvfrwUXEluOnIf6Xs7PIPDzz54mbenhJKzyr0wdmW
 
 dn: cn=quote\"guy,ou=\"quoted people\",dc=springframework,dc=org
 objectclass: top

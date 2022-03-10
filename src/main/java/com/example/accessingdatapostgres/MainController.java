@@ -103,14 +103,13 @@ public class MainController {
 		
 		//ここからBCryptPasswordEncoder()のテスト:間借り
 		var encoder = new BCryptPasswordEncoder();
-		System.out.println("bobspassword");
-		System.out.println(encoder.encode("bobspassword"));
-		System.out.println("joespassword");
-		System.out.println(encoder.encode("joespassword"));
-		System.out.println("jerryspassword");
-		System.out.println(encoder.encode("jerryspassword"));
-		System.out.println("slashguyspassword");
-		System.out.println(encoder.encode("slashguyspassword"));
+		String toEncWord = "mosberg";
+		String encWord = encoder.encode(toEncWord);
+		System.out.println(encoder.matches(toEncWord, encWord));
+		System.out.println("暗号化対象の文字列：" + toEncWord);
+		System.out.println("暗号化後の文字列：" + encWord);
+
+		//System.out.println(encoder.encode("joespassword"));
 		//ここまで
 
 		model.addAttribute("docList", docList);

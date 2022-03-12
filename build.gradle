@@ -36,6 +36,8 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-hibernate5'
+    testCompileOnly 'org.projectlombok:lombok'  // JUnit用に追加 2022.03.11
+    testAnnotationProcessor 'org.projectlombok:lombok'  // JUnit用に追加 2022.03.11
 }
 
 test {

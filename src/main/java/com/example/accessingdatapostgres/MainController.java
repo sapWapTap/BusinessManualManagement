@@ -3,7 +3,6 @@ package com.example.accessingdatapostgres;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -102,14 +101,12 @@ public class MainController {
 		//}
 		
 		//ここからBCryptPasswordEncoder()のテスト:間借り
-		var encoder = new BCryptPasswordEncoder();
-		String toEncWord = "mosberg";
-		String encWord = encoder.encode(toEncWord);
-		System.out.println(encoder.matches(toEncWord, encWord));
-		System.out.println("暗号化対象の文字列：" + toEncWord);
-		System.out.println("暗号化後の文字列：" + encWord);
-
-		//System.out.println(encoder.encode("joespassword"));
+		//var encoder = new BCryptPasswordEncoder();
+		//String toEncWord = "mosberg";
+		//String encWord = encoder.encode(toEncWord);
+		//System.out.println(encoder.matches(toEncWord, encWord));
+		//System.out.println("暗号化対象の文字列：" + toEncWord);
+		//System.out.println("暗号化後の文字列：" + encWord);
 		//ここまで
 
 		model.addAttribute("docList", docList);

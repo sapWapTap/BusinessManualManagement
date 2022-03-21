@@ -11,11 +11,15 @@ function addChangeAction(div) {
 		//以下でsaveText()と書くと関数の結果を渡してしまう（即時実行されて、リスナーとして機能しない）ので注意
 		textbox.addEventListener("change", saveText, false);
 		//console.log("addChangeListener0");
+	} else if (div.children[1].tagName === "IMG"){
+		//なにもしない
 	} else if (div.children[2].tagName === "INPUT"
 		|| div.children[2].tagName === "TEXTAREA"){
 		let textbox = div.children[2];
 		textbox.addEventListener("change", saveText, false);
 		//console.log("addChangeListener1");
+	} else if (div.children[2].tagName === "IMG"){
+		//なにもしない
 	}
 }
 

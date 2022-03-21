@@ -51,25 +51,37 @@ $('#elementListTable tbody tr').each(function(i, tr){
 	if (partsInfo[1] === "INPUT"){
 		innerParts1 = $('<H' + partsInfo[6] + '>',{
 			id : partsName,
-		name : partsName, //tableのtext欄のドットより前（htmlElementList[X]）と同じNAMEを入れる
+			name : partsName, //tableのtext欄のドットより前（htmlElementList[X]）と同じNAMEを入れる
 			text : partsInfo[4],
 		});
-		innerParts2 = $('<input>',{
+		innerParts2 = $('<INPUT>',{
 			id : partsName,
-		name : partsName, //tableのtext欄のドットより前（htmlElementList[X]）と同じNAMEを入れる
+			name : partsName, //tableのtext欄のドットより前（htmlElementList[X]）と同じNAMEを入れる
 			value : partsInfo[4],
 			class : 'displayNone',
 		});
 	} else if (partsInfo[1] === "TEXTAREA"){
 		innerParts1 = $('<p>',{
 			id : partsName,
-		name : partsName, //tableのtext欄のドットより前（htmlElementList[X]）と同じNAMEを入れる
+			name : partsName, //tableのtext欄のドットより前（htmlElementList[X]）と同じNAMEを入れる
 			text : partsInfo[4],
 		});
-		innerParts2 = $('<textarea>',{
+		innerParts2 = $('<TEXTAREA>',{
 			id : partsName,
-		name : partsName, //tableのtext欄のドットより前（htmlElementList[X]）と同じNAMEを入れる
+			name : partsName, //tableのtext欄のドットより前（htmlElementList[X]）と同じNAMEを入れる
 			text : partsInfo[4],
+			class : 'displayNone',
+		});
+	} else if (partsInfo[1] === "IMG"){
+		innerParts1 = $('<IMG>',{
+			id : partsName,
+			name : partsName, //tableのtext欄のドットより前（htmlElementList[X]）と同じNAMEを入れる
+			src : partsInfo[4],
+		});
+		innerParts2 = $('<IMG>',{
+			id : partsName,
+			name : partsName, //tableのtext欄のドットより前（htmlElementList[X]）と同じNAMEを入れる
+			src : partsInfo[4],
 			class : 'displayNone',
 		});
 	} else {

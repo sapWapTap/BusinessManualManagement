@@ -48,15 +48,24 @@ function addHtmlElementList(parts){
 			if (elementFieldName[i] == "tagName") {t.val(parts.children[1].tagName);}
 			if (elementFieldName[i] == "idName") {t.val(parts.id);}
 			if (elementFieldName[i] == "className") {t.text(parts.className);}
-			if (elementFieldName[i] == "text") {t.text(parts.firstElementChild.text);}
+			if (elementFieldName[i] == "text") {
+				console.log("parts.children[1]:", parts.children[1]);
+				if (parts.children[1].tagName == "IMG") {
+					console.log("parts.children[1].getAttribute(src):", parts.children[1].getAttribute("src"));
+					t.text(parts.children[1].getAttribute("src"))
+				} else  {
+					t.text(parts.children[1].value)
+				};
+			}
 			if (elementFieldName[i] == "clientRectTop") {t.text(parts.getBoundingClientRect().top);}
 			if (elementFieldName[i] == "chapterLevel") {t.text(1);}
 			if (elementFieldName[i] == "docId") {t.text($('LABEL#docId').text());}
-			if (elementFieldName[i] == "color") {t.text(parts.firstElementChild.color);}
+			if (elementFieldName[i] == "color") {t.text(parts.children[1].color);}
+			if (elementFieldName[i] == "delFlag") {t.text("false");}
 		}
 	}
 
-	console.log("$('LABEL#docId').text():", $('LABEL#docId').text());
+	//console.log("$('LABEL#docId').text():", $('LABEL#docId').text());
 
 	//{id:func(t),id:func(t)}
 	

@@ -1,5 +1,7 @@
 package com.example.accessingdatapostgres;
 
+import java.util.Objects;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -117,5 +119,58 @@ public class HtmlElement{
 	public void setDelFlag(Boolean delFlag) {
 		this.delFlag = delFlag;
 	}
+	
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(chapterLevel, className, clientRectTop, color, delFlag, docId, id, idName, tagName, text);
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		HtmlElement other = (HtmlElement) obj;
+		return Objects.equals(chapterLevel, other.chapterLevel) && Objects.equals(className, other.className)
+				&& Objects.equals(clientRectTop, other.clientRectTop) && Objects.equals(color, other.color)
+				&& Objects.equals(delFlag, other.delFlag) && Objects.equals(docId, other.docId)
+				&& Objects.equals(id, other.id) && Objects.equals(idName, other.idName)
+				&& Objects.equals(tagName, other.tagName) && Objects.equals(text, other.text);
+	}
+	
+	//コンストラクタ
+	public HtmlElement(
+			Long id,
+			String tagName,
+			String idName,
+			String className,
+			String text,
+			Double clientRectTop,
+			Integer chapterLevel,
+			String color,
+			Long docId,
+			Boolean delFlag
+	)
+	{
+			this.setId(id);
+			this.setTagName(tagName);
+			this.setIdName(idName);
+			this.setClassName(className);
+			this.setText(text);
+			this.setClientRectTop(clientRectTop);
+			this.setChapterLevel(chapterLevel);
+			this.setColor(color);
+			this.setDocId(docId);
+			this.setDelFlag(delFlag);
+	}	
 
+	public HtmlElement() {
+		super();
+	}
+
+	
 }

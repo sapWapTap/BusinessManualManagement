@@ -39,6 +39,10 @@ $('#searchBtn').on('click', () => {
 				$('#searchResultArea').append(textElements);
 				prevDocId = docId;
 			})
+
+			console.log("Bdata:", data[0]);
+			$('.container').append(data[0]);
+
 		})
 	}
 

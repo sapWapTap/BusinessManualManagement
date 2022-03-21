@@ -19,11 +19,11 @@ public class DocService {
 		return docRepository.findAll();
 	}
 
-	public Doc searchOne(Long id){
+//	public Doc searchOne(Long id){
 //		Doc test = docRepository.findById(2L).get();
 //		System.out.println(test.getName());
-		return docRepository.getById(id);
-	}
+//		return docRepository.getById(id);
+//	}
 
 	public Doc getById(Long id){
 		return docRepository.getById(id);

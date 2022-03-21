@@ -31,7 +31,7 @@ public class RestTypeController {
 		List<HtmlElement> htmlElementList = htmlElementService.searchByText(searchWord);
 		//System.out.println(htmlElementList);
 		//for (HtmlElement elem : htmlElementList) {
-		//	System.out.println(elem.getId());
+		//	System.out.println(elem);
 		//}
 		
 		return htmlElementList;
@@ -40,8 +40,9 @@ public class RestTypeController {
 	@GetMapping("/searchDoc")
 	public List<Doc> searchDoc(@RequestParam(value = "docId") Long docId) {
 
-		System.out.println("rect2");
-		System.out.println(docId);
+		Doc compData = new Doc(263L, "test manual", "test");
+		//System.out.println("rect2");
+		//System.out.println(docId);
 		Doc doc = docService.getById(docId);
 		List<Doc> docList = new ArrayList<Doc>();
 		docList.add(doc);

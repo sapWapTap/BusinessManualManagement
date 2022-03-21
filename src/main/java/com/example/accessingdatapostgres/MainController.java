@@ -116,7 +116,7 @@ public class MainController {
 	//新規作成用編集ページ（引数idを持たない）
 	@GetMapping("/editDoc")
 	public String newDoc(Model model) {
-		Doc doc = new Doc();
+		Doc doc = new Doc(1L,"seisei","sareu?");
 		model.addAttribute("doc", doc);
 		return "editDoc";
 	}
@@ -124,7 +124,7 @@ public class MainController {
 	//更新用編集ページ（引数idを持つ）
 	@GetMapping("/editDoc/{id}")
 	public String editDoc(@PathVariable Long id, Model model) {
-		Doc doc = docService.searchOne(id);
+		Doc doc = docService.getById(id);
 		model.addAttribute("doc", doc);
 		return "editDoc";
 	}

@@ -74,6 +74,7 @@ h3 {
 }
 h4 {
 }
+/*
 h1:before {
     content: counter(chapterNumH1) "章. ";
     counter-increment: chapterNumH1
@@ -86,6 +87,7 @@ h3:before {
     content: " " counter(chapterNumH1) "-" counter(chapterNumH2) "-" counter(chapterNumH3) " ";
     counter-increment: chapterNumH3;
 }
+*/
 /*
 .box_srcollbar {
     overflow:auto; 下の行とどっちかで 

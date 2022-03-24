@@ -69,7 +69,11 @@ function addContorolbutton(div, dispNone){
 	controlDiv.append(levelDownSwitch[0]);
 
 	//画像アップロードフォーム
-	let fileUploadSwitch = $('<form>', {
+	let containerDiv = $('<div>', {
+		id : "containerDiv",
+		class : "btn btn-outline-secondary  btn-sm editSwitch displayNone",
+	})
+	let fileUploadForm = $('<form>', {
 		id : "fileUploadForm",
 		method : "POST",
 		enctype : "multipart/form-data"
@@ -96,12 +100,11 @@ function addContorolbutton(div, dispNone){
 	fileUploadInput[0].addEventListener("change", insteadClickFileUpload, false);
 	fileUploadInputInsteadBtn[0].addEventListener("click", insteadClickFileInput, false);
 	fileUploadBtn[0].addEventListener("click", uploadAndGetImageData, false);
-	fileUploadSwitch.append(fileUploadInput[0]);
-	fileUploadSwitch.append(fileUploadInputInsteadBtn[0]);
-	fileUploadSwitch.append(fileUploadBtn[0]);
-	controlDiv.append(fileUploadSwitch[0]);
-	/*
-	*/
+	fileUploadForm.append(fileUploadInput[0]);
+	fileUploadForm.append(fileUploadBtn[0]);
+	containerDiv.append(fileUploadForm[0]);
+	controlDiv.append(containerDiv[0]);
+	controlDiv.append(fileUploadInputInsteadBtn[0]);
 
 	//ドラッグスペースボタン
 	let dragSpace = $('<div>', {
@@ -110,7 +113,7 @@ function addContorolbutton(div, dispNone){
 		width : "20%",
 	})
 	controlDiv.append(dragSpace[0]);
-
+	
 	//削除ボタン
 	let delSwitch = $('<button>', {
 		text : "Del",
@@ -271,15 +274,15 @@ function changeChapterLevel(element, chapterLevel, queryText, upOrDown) {
 
 function insteadClickFileInput(event){
 
-		console.log("event.target.previousElementSibling：", event.target.previousElementSibling);
-		event.target.previousElementSibling.click();
+		console.log("event.target.previousElementSibling.children[0]：", event.target.previousElementSibling.children[0]);
+		event.target.previousElementSibling.children[0].children[0].click();
 
 }
 
 function insteadClickFileUpload(event){
 
-		console.log("event.target.nextElementSibling.nextElementSibling：", event.target.nextElementSibling.nextElementSibling);
-		event.target.nextElementSibling.nextElementSibling.click();
+		console.log("event.target.nextElementSibling：", event.target.nextElementSibling);
+		event.target.nextElementSibling.click();
 
 }
 
@@ -321,7 +324,7 @@ function uploadAndGetImageData(e){
 				console.log("SUCCESS : ", data);
 				$("#uploadBtn").prop("disabled", false);
 				//console.log(e.target.parentNode.parentNode.parentNode.children[1]);
-				e.target.parentNode.parentNode.parentNode.children[1].src = data;
+				e.target.closest("#controlDiv").nextElementSibling.src = data;
 				console.log("realAend");
 			},
 			error: function (e) {
@@ -339,12 +342,12 @@ function uploadAndGetImageData(e){
 		console.log("realBstart");
 
 		//プロセスAでsrcに画像ファイルのFileDBのidをセットしてある。		
-		var id = e.target.parentNode.parentNode.parentNode.children[1].getAttribute("src");
+		var id = e.target.closest("#controlDiv").nextElementSibling.getAttribute("src");
+		//console.log("id:",id);
 
 		//htmElementListテーブルのtext欄にFileDBのidをセット
-		//console.log("e.target.parentNode.parentNode.parentNode.getAttribute(name):",e.target.parentNode.parentNode.parentNode.getAttribute("name"));
-		let queryText = "#htmlElementTable tr td textarea[name=\"" + e.target.parentNode.parentNode.parentNode.getAttribute("name") + ".text\"]";
-		//console.log("queryText:",queryText);
+		let queryText = "#htmlElementTable tr td textarea[name=\"" + e.target.closest(".isParts").getAttribute("name") + ".text\"]";
+		console.log("queryText:",queryText);
 		//console.log("name:",$(queryText)[0].name);
 		$(queryText)[0].value = id;
 
@@ -353,7 +356,7 @@ function uploadAndGetImageData(e){
 			dataType:"json",
 		}).done(data => {
 			$.each(data, (i, value) => {
-				e.target.parentNode.parentNode.parentNode.children[1].src = 'data:image/png;base64,' + value;
+				e.target.closest("#controlDiv").nextElementSibling.src = 'data:image/png;base64,' + value;
 			})
 			console.log("realBend");
 		})

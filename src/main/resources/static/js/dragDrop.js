@@ -51,7 +51,7 @@ function mdown(e) {
 	
 	//divタグに対してのみ発火させる（テキストボックスにテキスト入れようとした際にクリックしても反応しては困る）
 	//2022.03.02 ドラッグBTNにのみ発火に変更（実際にはeditSwitchクラスを持つDIV）
-	if (e.target.tagName === 'DIV' && $(e.target).hasClass('editSwitch') ){
+	if (e.target.tagName === 'DIV' && $(e.target).hasClass('moveForDrag') ){
 		
 		let drag = this; //部品div内の操作divをクリックしても、thisになるのは部品divの方。
 		orgFlag = false;

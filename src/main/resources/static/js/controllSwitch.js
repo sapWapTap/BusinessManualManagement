@@ -68,11 +68,51 @@ function addContorolbutton(div, dispNone){
 	levelDownSwitch[0].addEventListener("click", changeChapterLevelDown, false);
 	controlDiv.append(levelDownSwitch[0]);
 
+	//画像アップロードフォーム
+	let fileUploadSwitch = $('<form>', {
+		id : "fileUploadForm",
+		method : "POST",
+		enctype : "multipart/form-data"
+	})
+	let fileUploadInput = $('<input>', {
+		type : "file",
+		name : "file",
+		id : "file",
+		text : "SELECT",
+		class : "btn btn-outline-secondary  btn-sm editSwitch displayNone",
+	})
+	let fileUploadInputInsteadBtn = $('<button>', {
+		type : "button",
+		id : "fileInstead",
+		text : "SELECT",
+		class : "btn btn-outline-secondary  btn-sm editSwitch",
+	})
+	let fileUploadBtn = $('<button>', {
+		type : "submit",
+		id : "uploadBtn",
+		text : "SET",
+		class : "btn btn-outline-secondary  btn-sm editSwitch",
+	})
+	/*
+	<form id="fileUploadForm" method="POST" enctype="multipart/form-data">
+		<input type="file" name="file" id="file">
+		<button type="submit" id="uploadBtn">UPLOAD</button>
+	</form>
+	*/
+	fileUploadInputInsteadBtn[0].addEventListener("click", insteadOfClick, false);
+	fileUploadBtn[0].addEventListener("click", uploadAndGetImageData, false);
+	fileUploadSwitch.append(fileUploadInput[0]);
+	fileUploadSwitch.append(fileUploadInputInsteadBtn[0]);
+	fileUploadSwitch.append(fileUploadBtn[0]);
+	controlDiv.append(fileUploadSwitch[0]);
+	/*
+	*/
+
 	//ドラッグスペースボタン
 	let dragSpace = $('<div>', {
 		text : "Drag here",
 		class : "btn btn-outline-secondary  btn-sm editSwitch moveForDrag",
-		width : "70%",
+		width : "20%",
 	})
 	controlDiv.append(dragSpace[0]);
 
@@ -230,6 +270,108 @@ function changeChapterLevel(element, chapterLevel, queryText, upOrDown) {
 	$(div).addClass(className);
 	
 }
+
+
+function insteadOfClick(e){
+
+		console.log("event.target.previousElementSibling：", event.target.previousElementSibling);
+		event.target.previousElementSibling.click();
+
+}
+
+
+function uploadAndGetImageData(e){
+	
+	//ファイルをフォーム形式で曹宇審するajax（CSRF対策付き）
+	const processA = async function(event) {
+		
+		console.log("realAstart");
+
+	   //stop submit the form, we will post it manually.
+		event.preventDefault();
+
+	   //Get form
+		//var form = $('#fileUploadForm')[0]; 
+		var form = event.target.parentNode;
+
+	   //Create an FormData object
+		var data = new FormData(form);
+
+	   //If you want to add an extra field for the FormData
+		//data.append("CustomField", "This is some extra data, testing");
+
+	   //disabled the submit button
+		$("#uploadBtn").prop("disabled", true);
+
+		await $.ajax({
+			type: "POST",
+			enctype: 'multipart/form-data',
+			url: uploadImageDataUrl,
+			data: data,
+			processData: false,
+			contentType: false,
+			cache: false,
+			timeout: 10000,
+			success: function (data) {
+				$("#result").text(data);
+				console.log("SUCCESS : ", data);
+				$("#uploadBtn").prop("disabled", false);
+				//console.log(e.target.parentNode.parentNode.parentNode.children[1]);
+				e.target.parentNode.parentNode.parentNode.children[1].src = data;
+				console.log("realAend");
+			},
+			error: function (e) {
+				$("#result").text(e.responseText);
+				console.log("ERROR : ", e);
+				$("#uploadBtn").prop("disabled", false);
+			}
+		})
+		
+	}	
+	
+	
+	//imageデータ（base64String）を取得するajax
+	const processB = async function(event) {
+		console.log("realBstart");
+
+		//プロセスAでsrcに画像ファイルのFileDBのidをセットしてある。		
+		var id = e.target.parentNode.parentNode.parentNode.children[1].getAttribute("src");
+
+		//htmElementListテーブルのtext欄にFileDBのidをセット
+		//console.log("e.target.parentNode.parentNode.parentNode.getAttribute(name):",e.target.parentNode.parentNode.parentNode.getAttribute("name"));
+		let queryText = "#htmlElementTable tr td textarea[name=\"" + e.target.parentNode.parentNode.parentNode.getAttribute("name") + ".text\"]";
+		//console.log("queryText:",queryText);
+		//console.log("name:",$(queryText)[0].name);
+		$(queryText)[0].value = id;
+
+		$.ajax({
+			url:getImageDataUrl + id,
+			dataType:"json",
+		}).done(data => {
+			$.each(data, (i, value) => {
+				e.target.parentNode.parentNode.parentNode.children[1].src = 'data:image/png;base64,' + value;
+			})
+			console.log("realBend");
+		})
+
+		console.log("realBend");
+	}
+
+
+	const processAll = async function(e) {
+		//await Promise.all([processA() processC()])  //ここには複数のプロセスを書け、全部終わったら次に進む、とできる
+		await processA(e) //単純に順番に処理する場合はこの通り
+		console.log("Aend");
+		await processB(e)
+		console.log("Bend");
+	}
+
+
+
+	processAll(e);
+
+}
+
 
 
 function deleteFlagEnable(event) {

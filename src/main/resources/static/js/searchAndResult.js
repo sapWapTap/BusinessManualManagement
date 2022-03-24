@@ -12,12 +12,13 @@ $('#searchBtn').on('click', () => {
 
 	//①htmlElementを取得するajax
 	const processA = async function() {
+		console.log("realAstart");
 		await $.ajax({
 			url:htmlElementSerarchUrl + $('#searchWord').val(),
 			dataType:"json",
 		}).done(data => {
 	
-			console.log("Adata:", data);
+			//console.log("Adata:", data);
 	
 			$('#searchResultArea').empty();
 	
@@ -40,14 +41,17 @@ $('#searchBtn').on('click', () => {
 				prevDocId = docId;
 			})
 
-			console.log("Bdata:", data[0]);
+			//console.log("Bdata:", data[0]);
 			$('.container').append(data[0]);
+
+			console.log("realAend");
 
 		})
 	}
 
 	//②docNameを取得するajax （①完了後に実行する）
 	const processB = async function() {
+		console.log("realBstart");
 		docIdList.forEach(function(docId, index) {
 			
 			$.ajax({
@@ -62,9 +66,8 @@ $('#searchBtn').on('click', () => {
 					//const titleElements = `<a href=${id}><li>${docName}</li></a>`;
 					//$('#searchResultArea').append(titleElements);
 				})
+				console.log("realBend");
 			})
-
-			
 		});
 	}
 

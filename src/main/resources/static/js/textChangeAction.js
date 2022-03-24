@@ -12,14 +12,14 @@ function addChangeAction(div) {
 		textbox.addEventListener("change", saveText, false);
 		//console.log("addChangeListener0");
 	} else if (div.children[1].tagName === "IMG"){
-		//なにもしない
+		//なにもしない。
 	} else if (div.children[2].tagName === "INPUT"
 		|| div.children[2].tagName === "TEXTAREA"){
 		let textbox = div.children[2];
 		textbox.addEventListener("change", saveText, false);
 		//console.log("addChangeListener1");
 	} else if (div.children[2].tagName === "IMG"){
-		//なにもしない
+		//なにもしない。
 	}
 }
 
@@ -33,3 +33,4 @@ function saveText(e){
 	$(queryText)[0].value = e.target.value;
 
 }
+

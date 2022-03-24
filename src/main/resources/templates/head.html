@@ -7,6 +7,12 @@
    -->
   <script src="https://cdn.tiny.cloud/1/5refn69vtydntpcme430mb6rqxg9of5c0tjo8dkbhg32s9fx/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
   <script type="text/javascript" th:src="@{/js/addTinyMCE.js}"></script>
-</head>
   <meta charset="utf-8" />
+
+  <!-- 
+   <sec:csrfMetaTags />
+   -->
+  <!-- omitted -->
+  <meta name="_csrf" th:content="${_csrf.token}"/>
+  
 </head>

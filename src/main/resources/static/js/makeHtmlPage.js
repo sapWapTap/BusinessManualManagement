@@ -1,4 +1,14 @@
 
+var getImageDataUrl = '../rest/get?id='; //続けてDocIdを指定する
+var uploadImageDataUrl = '../rest/upload'; 
+
+var token = $("meta[name='_csrf']").attr("content");
+var header = "X-CSRF-TOKEN";
+
+console.log("token:",token);
+console.log("header:",header);
+
+
 //最初の部品は配置済みのdivTopにする
 let prevParts = $('#divTop');
 //部品情報格納用の配列
@@ -44,8 +54,6 @@ $('#elementListTable tbody tr').each(function(i, tr){
 
 	//divPartsはdivタグそのものではなく、divタグを含む構造体？
 	//console.log(divParts);
-	
-	
 	
 	//取り出した部品情報を元にdivタグ内のタグを作成する（タグの種類は[1]に入っている）
 	if (partsInfo[1] === "INPUT"){
@@ -115,7 +123,22 @@ $('#elementListTable tbody tr').each(function(i, tr){
 	partsInfo =[];
 	
 	prevParts = divParts;
+});
+
+
+$('div.editArea div[class*="isParts"] img').each(function(i, elem){
+
+	//画像データをロードする
+	$.ajax({
+		url:getImageDataUrl + elem.getAttribute('src'),
+		dataType:"json",
+	}).done(data => {
+		$.each(data, (i, value) => {
+			elem.src = 'data:image/png;base64,' + value;
+		})
+	})
 })
+		
 
 //各部品のTOP位置をすべて再取得
 reGetPotion();

@@ -84,22 +84,17 @@ function addContorolbutton(div, dispNone){
 	let fileUploadInputInsteadBtn = $('<button>', {
 		type : "button",
 		id : "fileInstead",
-		text : "SELECT",
+		text : "Change",
 		class : "btn btn-outline-secondary  btn-sm editSwitch",
 	})
 	let fileUploadBtn = $('<button>', {
 		type : "submit",
 		id : "uploadBtn",
 		text : "SET",
-		class : "btn btn-outline-secondary  btn-sm editSwitch",
+		class : "btn btn-outline-secondary  btn-sm editSwitch displayNone",
 	})
-	/*
-	<form id="fileUploadForm" method="POST" enctype="multipart/form-data">
-		<input type="file" name="file" id="file">
-		<button type="submit" id="uploadBtn">UPLOAD</button>
-	</form>
-	*/
-	fileUploadInputInsteadBtn[0].addEventListener("click", insteadOfClick, false);
+	fileUploadInput[0].addEventListener("change", insteadClickFileUpload, false);
+	fileUploadInputInsteadBtn[0].addEventListener("click", insteadClickFileInput, false);
 	fileUploadBtn[0].addEventListener("click", uploadAndGetImageData, false);
 	fileUploadSwitch.append(fileUploadInput[0]);
 	fileUploadSwitch.append(fileUploadInputInsteadBtn[0]);
@@ -205,6 +200,7 @@ function changeChapterLevelDown(event){
 		
 }
 
+//chapterLevelを切り替えて、<HX>タグを変更する
 function changeChapterLevelUp(event){
 	let parent = event.target.parentNode.parentNode; //部品DIVを取得
 	let brothers = parent.children;
@@ -216,6 +212,7 @@ function changeChapterLevelUp(event){
 	}
 }
 
+//chapterLevelを切り替えて、<HX>タグを変更する
 function changeChapterLevel(element, chapterLevel, queryText, upOrDown) {
 
 	let nextLevel; //変更後のchapterLevelを格納する
@@ -272,10 +269,17 @@ function changeChapterLevel(element, chapterLevel, queryText, upOrDown) {
 }
 
 
-function insteadOfClick(e){
+function insteadClickFileInput(event){
 
 		console.log("event.target.previousElementSibling：", event.target.previousElementSibling);
 		event.target.previousElementSibling.click();
+
+}
+
+function insteadClickFileUpload(event){
+
+		console.log("event.target.nextElementSibling.nextElementSibling：", event.target.nextElementSibling.nextElementSibling);
+		event.target.nextElementSibling.nextElementSibling.click();
 
 }
 

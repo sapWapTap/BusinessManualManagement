@@ -6,7 +6,7 @@
 	<div>
 		<!-- 文書作成エリア -->		
 		<div id="editArea" class="editArea editArea_s width100">
-			<label style="font-size:40pt">文書作成エリア</label>
+			<label class="displayNone" id="makeAreaTitle" style="font-size:40pt">文書作成エリア</label>
 			<div class="float-end" id="divBtn">
 				<a th:href="@{/viewDocList}" class="btn btn-primary">マニュアル一覧はこちら</a>
 				<!-- 
@@ -18,7 +18,7 @@
 	 			<label id="diapEditMode" hidden>V</label>
 			</div>
 			<div id="divTable">
-				<button id="hiddenSwitchBtn" class="btn btn-outline-secondary">elementListTableの表示切替</button>
+				<button id="hiddenSwitchBtn" class="btn btn-outline-secondary displayNone">elementListTableの表示切替</button>
 				<form th:object="${htmlElementListDto}" th:action="@{/updateHtmlElementListResult}" method="post">
 					<table class="table table-striped displayNone" id="elementListTable">
 						<thead>
@@ -61,10 +61,10 @@
 						</tbody>
 					</table>
 					<p>
-				 		<label> ドキュメントID: </label>
-				 		<label id="docId" th:text="${docId}"></label>
-				 		<label> 要素数: </label>
-				 		<label id="elementCount" th:text="*{htmlElementList.size()}"></label>
+				 		<label style="color:gray"> ドキュメントID: </label>
+				 		<label id="docId" style="color:gray" th:text="${docId}"></label>
+				 		<label style="color:gray"> 要素数: </label>
+				 		<label id="elementCount" style="color:gray" th:text="*{htmlElementList.size()}"></label>
 				 	</p>
 					<p>
 					<input type="submit" value="更新" style="width:10%;" class="btn btn-primary"/>
@@ -78,13 +78,14 @@
 		 	</div>
 			 -->
 
-			<div class="isParts border" id="divTop"><br>文書作成エリアはここから<br><br></div>
+			<div class="isParts border displayNone" id="divTop"><br>文書作成エリアはここから<br><br></div>
 
-			<div class="isParts border" id="divBottom"><br>文書作成エリアはここまで<br><br></div>
+			<div class="isParts border displayNone" id="divBottom"><br>文書作成エリアはここまで<br><br></div>
 		
 			<br>
 
 			
+			<!-- 
 			<p>restAPIのpostのテスト</p>
 			<form id="fileUploadForm" method="POST" enctype="multipart/form-data">
 				<input type="file" name="file" id="file">
@@ -94,6 +95,7 @@
 			<p>restAPIで取得した画像を表示するテスト</p>
 			<button id="loadBtn" type="submit">LOAD</button>
 			<img id="restTestImg" src="" alt="">
+			 -->
 	
 		
 			<!-- 

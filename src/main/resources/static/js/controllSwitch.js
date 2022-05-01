@@ -3,8 +3,15 @@
 $('#disableEditSwitchBtn').on('click', () => {
 	//console.log('click');
 	if ($('#diapEditMode').text() === 'V'){
+		//左上の文章作成エリアタイトルの表示切替
+		$('#makeAreaTitle').removeClass('displayNone');
+		//左上のelementTable表示切替
+		$('#hiddenSwitchBtn').removeClass('displayNone');
 		//右上のE/V表示切替（開発用）
 		$('#diapEditMode').text('E');
+		//「文章作成エリアここから、と、ここまで、の表示切替」
+		$('#divTop').removeClass('displayNone');
+		$('#divBottom').removeClass('displayNone');
 		//各部品の操作ボタン表示切替
 		$('.controlDiv').removeClass('displayNone');
 		//各部品の枠線の表示切替
@@ -15,8 +22,15 @@ $('#disableEditSwitchBtn').on('click', () => {
 		$('.editArea').removeClass('width100');
 		$('.editArea').addClass('width80');
 	} else if ($('#diapEditMode').text() === 'E') {
+		//左上の文章作成エリアタイトルの表示切替
+		$('#makeAreaTitle').addClass('displayNone');
+		//左上のelementTable表示切替
+		$('#hiddenSwitchBtn').addClass('displayNone');
 		//右上のE/V表示切替（開発用）
 		$('#diapEditMode').text('V');
+		//「文章作成エリアここから、と、ここまで、の表示切替」
+		$('#divTop').addClass('displayNone');
+		$('#divBottom').addClass('displayNone');
 		//各部品の操作ボタン表示切替
 		$('.controlDiv').addClass('displayNone');
 		//各部品の枠線の表示切替
